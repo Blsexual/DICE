@@ -3,6 +3,7 @@ canvas.addEventListener("mousedown", mousedown);
 var ctx = canvas.getContext("2d");
 var block;
 let grid_list = [];
+let startPosition = new gridbox(100*(7-1),100*(4-1),"",100,100);;
 
 let btstart = new Image();
 btstart.src = "img/start.png";
@@ -24,13 +25,16 @@ function init(){
 function gameloop(){
     draw();
     console.log(grid_list);
+    console.log(startPosition);
 }
 
 
 function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height)
     grid_list.forEach(gridblock => {
         gridblock.draw(ctx);
     });
+    startPosition.draw(ctx);
     ctx.drawImage(btstart,box1.x,box1.y,box1.width,box1.height);
 
 }
