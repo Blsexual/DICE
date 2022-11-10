@@ -16,28 +16,29 @@ function move(e){
     
 
     if (e.key == "ArrowRight" || e.key == "d"){
-        x ++ 
-        if (document.getElementById(y+":"+x).style.backgroundColor != "red") {
-            x--
-        }    
+        x ++; 
+        if (document.getElementById(y+":"+x).className != "path"){
+            x--;
+        }     
     }
     else if (e.key == "ArrowLeft" || e.key == "a"){  
-        x --  
-        if (document.getElementById(y+":"+x).style.backgroundColor != "red") {
-            x++
+        x --;
+        if (document.getElementById(y+":"+x).className != "path"){
+            x++;
         } 
     }
     else if (e.key == "ArrowUp" || e.key == "w"){
-        y --
-        if (document.getElementById(y+":"+x).style.backgroundColor != "red") {
-            y++
+        y --;
+        if (document.getElementById(y+":"+x).className != "path"){
+            y++;
         } 
     }
     else if (e.key == "ArrowDown" || e.key == "s"){
-        y ++
-        if (document.getElementById(y+":"+x).style.backgroundColor != "red") {
-            y--
-        } 
+        y ++;
+        if (document.getElementById(y+":"+x).className != "path"){
+            y--;
+        }
+
     }
     
     if (x > 18){

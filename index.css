@@ -30,3 +30,11 @@ body{
   border: 1px solid;
   text-align: center;
 }
+.path {
+
+    width:75px;
+    height:75px;
+  
+    border: 1px solid;
+    text-align: center;
+  }
