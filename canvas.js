@@ -1,6 +1,6 @@
-'use strict'
+//'use strict'
 //Kanvasen skapas
-var canvas = document.getElementById("Canvas"); 
+/*var canvas = document.getElementById("Canvas"); 
 var ctx = canvas.getContext("2d");
 
 //Creating the grid system for the map
@@ -26,14 +26,12 @@ for(let i=0; i<5; i++){
 
 
 function gridY(){
-    ctx.beginPath();
-    ctx.fillStyle = "black";
-    
     for(let i=0; i<3; i++){
-    let block = new Grid(250,250,"black");
-    grid_list_y.push(block);
-    }
-        
+        ctx.beginPath();   
+        let block = new Grid(250,250,"black");
+        grid_list_y.push(block);
+        ctx.rect(0, 0, block.width, block.height);
+    } 
 }
 
 
@@ -48,10 +46,32 @@ class Path{
     }
 }
 
+
+
 function gameloop(){
     gridY();
 }
 
+
+
 window.onload = function(){
    window.requestAnimationFrame(gameloop)
-}
+}*/
+
+
+
+
+// Sets important constants and variables
+
+const container = document.getElementById("container");
+
+function makeRows(rows, cols) {
+  container.style.setProperty('--grid-rows', rows);
+  container.style.setProperty('--grid-cols', cols);
+  for (c = 0; c < (rows * cols); c++) {
+    let cell = document.createElement("div");
+    container.appendChild(cell).className = "grid-item";
+  };
+};
+
+makeRows(5, 8);
