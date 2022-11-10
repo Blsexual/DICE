@@ -9,31 +9,32 @@ let grid_list_y = [];
 
 
 class Grid{
-    constructor(width, height){
+    constructor(width, height, color){
         this.width = width;
         this.height = height;
+        this.color = color;
     }
 }
 
 
 for(let i=0; i<5; i++){
-    block = new Grid(250,250);
-    grid_list_x.append(block);
+    let block = new Grid(250,250,"black");
+    grid_list_x.push(block);
 }
 
-for(let i=0; i<3; i++){
-    block = new Grid(250,250);
-    grid_list_y.append(block);
-}
+
 
 
 function gridY(){
     ctx.beginPath();
-    ctx.fillStyle = ""
+    ctx.fillStyle = "black";
+    
+    for(let i=0; i<3; i++){
+    let block = new Grid(250,250,"black");
+    grid_list_y.push(block);
+    }
         
 }
-
-
 
 
 //creating the path for the player to move on the map grid
@@ -47,3 +48,10 @@ class Path{
     }
 }
 
+function gameloop(){
+    gridY();
+}
+
+window.onload = function(){
+   window.requestAnimationFrame(gameloop)
+}
