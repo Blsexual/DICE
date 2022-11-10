@@ -91,10 +91,13 @@ function Path(){
     document.getElementById("4:8").className = "path";
     document.getElementById("4:9").style.backgroundColor = "red";
     document.getElementById("4:9").className = "path";
+
 }
 
+
+
 function gameloop(){
-    makeRows(8, 16);
+    makeRows(8, 18);
     Path();
 }
 

@@ -19,8 +19,7 @@ function move(e){
         x ++; 
         if (document.getElementById(y+":"+x).className != "path"){
             x--;
-        }
-            
+        }     
     }
     else if (e.key == "ArrowLeft" || e.key == "a"){  
         x --;
@@ -39,10 +38,11 @@ function move(e){
         if (document.getElementById(y+":"+x).className != "path"){
             y--;
         }
+
     }
     
-    if (x > 16){
-        x = 16;
+    if (x > 18){
+        x = 18;
     }
     if (x < 1){
         x = 1
