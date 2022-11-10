@@ -1,5 +1,5 @@
 
-
+/*
 
 addEventListener('keydown', move);
 let x = 1
@@ -53,4 +53,4 @@ function move(e){
         y = 1
     }
     document.getElementById(y+":"+x).style.backgroundColor = "green";
-}
+}*/

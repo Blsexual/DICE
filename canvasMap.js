@@ -1,40 +1,38 @@
 //'use strict'
 //Kanvasen skapas
-var canvas = document.getElementById("Canvas"); 
-var ctx = canvas.getContext("2d");
 
 
 //Creating the grid system for the map
-let grid_list = [];
 
-/*
-class Grid{
-    constructor(width, height, color){
+
+
+class gridbox{
+    constructor(x, y, color, width, height,){
+        this.x = x;
+        this.y = y;
+        this.color = color;
         this.width = width;
         this.height = height;
-        this.color = color;
+    }
+
+    draw(ctx){
+        ctx.beginPath();
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+        ctx.closePath();
     }
 }
 
 
-for(let i=0; i<5; i++){
-    let block = new Grid(250,250,"black");
-    grid_list_x.push(block);
+function Path(){
+    ctx.beginPath();
+    ctx.fillStyle=grid_list[7].color="red";
 }
 
+grid_list.forEach(draw);
 
-
-
-function gridY(){
-    for(let i=0; i<3; i++){
-        ctx.beginPath();   
-        let block = new Grid(250,250,"black");
-        grid_list_y.push(block);
-        ctx.rect(0, 0, block.width, block.height);
-    } 
-}
-
-
+/*
 //creating the path for the player to move on the map grid
 class Path{
     constructor(x, y, width, height, color){
@@ -51,7 +49,7 @@ class Path{
 
 
 // Sets important constants and variables
-
+/*
 const container = document.getElementById("container");
 
 function makeRows(rows, cols) {
@@ -112,14 +110,4 @@ function Path(){
 
     let path_way = [block1, block2, block3, block4, block5, block6, block7, block8, block9, block10, block11, block12, block13];
 }
-
-
-
-function gameloop(){
-    makeRows(8, 18);
-    Path();
-}
-
-window.onload = function(){
-   window.requestAnimationFrame(gameloop);
-}
+*/
