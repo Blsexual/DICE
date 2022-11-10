@@ -59,6 +59,7 @@ function makeRows(rows, cols) {
   container.style.setProperty('--grid-cols', cols);
   let x = 1;
   let y = 1;
+  
   for (c = 0; c < (rows * cols); c++) {
     let cell = document.createElement("div");
     cell.setAttribute("id", y + ":" + x);
@@ -73,14 +74,23 @@ function makeRows(rows, cols) {
 
 function Path(){
     document.getElementById("4:1").style.backgroundColor = "red";
+    document.getElementById("4:1").className = "path";
     document.getElementById("4:2").style.backgroundColor = "red";
+    document.getElementById("4:2").className = "path";
     document.getElementById("4:3").style.backgroundColor = "red";
+    document.getElementById("4:3").className = "path";
     document.getElementById("4:4").style.backgroundColor = "red";
+    document.getElementById("4:4").className = "path";
     document.getElementById("4:5").style.backgroundColor = "red";
+    document.getElementById("4:5").className = "path";
     document.getElementById("4:6").style.backgroundColor = "red";
+    document.getElementById("4:6").className = "path";
     document.getElementById("4:7").style.backgroundColor = "red";
+    document.getElementById("4:7").className = "path";
     document.getElementById("4:8").style.backgroundColor = "red";
+    document.getElementById("4:8").className = "path";
     document.getElementById("4:9").style.backgroundColor = "red";
+    document.getElementById("4:9").className = "path";
 }
 
 function gameloop(){
