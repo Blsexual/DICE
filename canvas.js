@@ -59,6 +59,7 @@ function makeRows(rows, cols) {
   container.style.setProperty('--grid-cols', cols);
   let x = 1;
   let y = 1;
+  
   for (c = 0; c < (rows * cols); c++) {
     let cell = document.createElement("div");
     cell.setAttribute("id", y + ":" + x);
@@ -73,44 +74,24 @@ function makeRows(rows, cols) {
 
 function Path(){
     document.getElementById("4:1").style.backgroundColor = "red";
+    document.getElementById("4:1").className = "path";
     document.getElementById("4:2").style.backgroundColor = "red";
+    document.getElementById("4:2").className = "path";
     document.getElementById("4:3").style.backgroundColor = "red";
+    document.getElementById("4:3").className = "path";
     document.getElementById("4:4").style.backgroundColor = "red";
+    document.getElementById("4:4").className = "path";
     document.getElementById("4:5").style.backgroundColor = "red";
+    document.getElementById("4:5").className = "path";
     document.getElementById("4:6").style.backgroundColor = "red";
+    document.getElementById("4:6").className = "path";
     document.getElementById("4:7").style.backgroundColor = "red";
+    document.getElementById("4:7").className = "path";
     document.getElementById("4:8").style.backgroundColor = "red";
+    document.getElementById("4:8").className = "path";
     document.getElementById("4:9").style.backgroundColor = "red";
-    document.getElementById("4:10").style.backgroundColor = "red";
-    document.getElementById("4:11").style.backgroundColor = "red";
-    document.getElementById("4:12").style.backgroundColor = "red";
-    document.getElementById("4:13").style.backgroundColor = "red";
-    document.getElementById("4:14").style.backgroundColor = "red";
-    document.getElementById("4:15").style.backgroundColor = "red";
-    document.getElementById("4:16").style.backgroundColor = "red";
-    document.getElementById("4:17").style.backgroundColor = "red";
-    document.getElementById("4:18").style.backgroundColor = "red";
+    document.getElementById("4:9").className = "path";
 
-    document.getElementById("1:13").style.backgroundColor = "red";
-    document.getElementById("2:13").style.backgroundColor = "red";
-    document.getElementById("3:13").style.backgroundColor = "red";
-    document.getElementById("5:13").style.backgroundColor = "red";
-    document.getElementById("6:13").style.backgroundColor = "red";
-    document.getElementById("7:13").style.backgroundColor = "red";
-
-    document.getElementById("7:14").style.backgroundColor = "red";
-    document.getElementById("7:15").style.backgroundColor = "red";
-    document.getElementById("7:16").style.backgroundColor = "red";
-    document.getElementById("7:17").style.backgroundColor = "red";
-    document.getElementById("7:18").style.backgroundColor = "red";
-
-    document.getElementById("1:14").style.backgroundColor = "red";
-    document.getElementById("1:15").style.backgroundColor = "red";
-    document.getElementById("1:16").style.backgroundColor = "red";
-    document.getElementById("1:17").style.backgroundColor = "red";
-    document.getElementById("1:18").style.backgroundColor = "red";
-
-    //let path_way = [block1, block2, block3, block4, block5, block6, block7, block8, block9, block10, block11, block12, block13];
 }
 
 
