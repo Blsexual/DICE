@@ -74,4 +74,4 @@ function makeRows(rows, cols) {
   };
 };
 
-makeRows(5, 8);
+makeRows(7, 15);
