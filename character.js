@@ -16,16 +16,28 @@ function move(e){
     
 
     if (e.key == "ArrowRight" || e.key == "d"){
-        x ++      
+        x ++ 
+        if (document.getElementById(y+":"+x).style.backgroundColor != "red") {
+            x--
+        }    
     }
     else if (e.key == "ArrowLeft" || e.key == "a"){  
         x --  
+        if (document.getElementById(y+":"+x).style.backgroundColor != "red") {
+            x++
+        } 
     }
     else if (e.key == "ArrowUp" || e.key == "w"){
         y --
+        if (document.getElementById(y+":"+x).style.backgroundColor != "red") {
+            y++
+        } 
     }
     else if (e.key == "ArrowDown" || e.key == "s"){
         y ++
+        if (document.getElementById(y+":"+x).style.backgroundColor != "red") {
+            y--
+        } 
     }
     
     if (x > 16){
