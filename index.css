@@ -1,4 +1,4 @@
-/*{
+*{
     margin:0;
     padding: 0;
 }
@@ -16,7 +16,6 @@
 body{
     position: absolute;
 }
-*/
 
 :root {
   --grid-cols: 1;
@@ -30,8 +29,8 @@ body{
 }
 
 .grid-item {
-  width:100px;
-  height:100px;
+  width:75px;
+  height:75px;
   border: 1px solid #ddd;
   text-align: center;
 }
