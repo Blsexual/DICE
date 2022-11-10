@@ -40,8 +40,8 @@ function move(e){
         } 
     }
     
-    if (x > 16){
-        x = 16;
+    if (x > 18){
+        x = 18;
     }
     if (x < 1){
         x = 1
