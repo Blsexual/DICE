@@ -1,46 +1,39 @@
 
-/*
+
 
 addEventListener('keydown', move);
-let x = 1
-let y = 4
-
 
 function move(e){
-    let oldx = x;
-    let oldy = y;
-    let oldcolor = "red";
-    document.getElementById(oldy+":"+oldx).style.backgroundColor = oldcolor;
     console.log (x)
     console.log (y)
     
 
     if (e.key == "ArrowRight" || e.key == "d"){
         x ++; 
-        if (document.getElementById(y+":"+x).className != "path"){
+        if (){
             x--;
         }     
     }
     else if (e.key == "ArrowLeft" || e.key == "a"){  
         x --;
-        if (document.getElementById(y+":"+x).className != "path"){
+        if (){
             x++;
         } 
     }
     else if (e.key == "ArrowUp" || e.key == "w"){
         y --;
-        if (document.getElementById(y+":"+x).className != "path"){
+        if (){
             y++;
         } 
     }
     else if (e.key == "ArrowDown" || e.key == "s"){
         y ++;
-        if (document.getElementById(y+":"+x).className != "path"){
+        if (){
             y--;
         }
 
     }
-    
+/*
     if (x > 18){
         x = 18;
     }
@@ -53,5 +46,5 @@ function move(e){
     if (y < 1){
         y = 1
     }
-    document.getElementById(y+":"+x).style.backgroundColor = "green";
-}*/
+*/
+}
