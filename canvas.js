@@ -91,6 +91,59 @@ function Path(){
     document.getElementById("4:8").className = "path";
     document.getElementById("4:9").style.backgroundColor = "red";
     document.getElementById("4:9").className = "path";
+    document.getElementById("4:10").style.backgroundColor = "red";
+    document.getElementById("4:10").className = "path";
+    document.getElementById("4:11").style.backgroundColor = "red";
+    document.getElementById("4:11").className = "path";
+    document.getElementById("4:12").style.backgroundColor = "red";
+    document.getElementById("4:12").className = "path";
+    document.getElementById("4:13").style.backgroundColor = "red";
+    document.getElementById("4:13").className = "path";
+    document.getElementById("4:14").style.backgroundColor = "red";
+    document.getElementById("4:14").className = "path";
+    document.getElementById("4:15").style.backgroundColor = "red";
+    document.getElementById("4:15").className = "path";
+    document.getElementById("4:16").style.backgroundColor = "red";
+    document.getElementById("4:16").className = "path";
+    document.getElementById("4:17").style.backgroundColor = "red";
+    document.getElementById("4:17").className = "path";
+    document.getElementById("4:18").style.backgroundColor = "red";
+    document.getElementById("4:18").className = "path";
+
+    document.getElementById("1:13").style.backgroundColor = "red";
+    document.getElementById("1:13").className = "path";
+    document.getElementById("2:13").style.backgroundColor = "red";
+    document.getElementById("2:13").className = "path";
+    document.getElementById("3:13").style.backgroundColor = "red";
+    document.getElementById("3:13").className = "path";
+    document.getElementById("5:13").style.backgroundColor = "red";
+    document.getElementById("5:13").className = "path";
+    document.getElementById("6:13").style.backgroundColor = "red";
+    document.getElementById("6:13").className = "path";
+    document.getElementById("7:13").style.backgroundColor = "red";
+    document.getElementById("7:13").className = "path";
+
+    document.getElementById("7:14").style.backgroundColor = "red";
+    document.getElementById("7:14").className = "path";
+    document.getElementById("7:15").style.backgroundColor = "red";
+    document.getElementById("7:15").className = "path";
+    document.getElementById("7:16").style.backgroundColor = "red";
+    document.getElementById("7:16").className = "path";
+    document.getElementById("7:17").style.backgroundColor = "red";
+    document.getElementById("7:17").className = "path";
+    document.getElementById("7:18").style.backgroundColor = "red";
+    document.getElementById("7:18").className = "path";
+
+    document.getElementById("1:14").style.backgroundColor = "red";
+    document.getElementById("1:14").className = "path";
+    document.getElementById("1:15").style.backgroundColor = "red";
+    document.getElementById("1:15").className = "path";
+    document.getElementById("1:16").style.backgroundColor = "red";
+    document.getElementById("1:16").className = "path";
+    document.getElementById("1:17").style.backgroundColor = "red";
+    document.getElementById("1:17").className = "path";
+    document.getElementById("1:18").style.backgroundColor = "red";
+    document.getElementById("1:18").className = "path";
 
 }
 
