@@ -1,58 +1,44 @@
 
+
+
 addEventListener('keydown', move);
-let speed = 10;
-let x = 50;
-let y = 50;
-let width = 20;
-let height = 10;
+let x = 1
+let y = 4
 
-
-class character{
-    constructor(x, y, width, height, color){
-        this.x = x;
-        this.y = y;
-        this.width = width;
-        this.height = height;
-        this.color = color;
-    }
-    drawCharacter(){
-        ctx.beginPath();
-        ctx.rect(this.x, this.y, this.width, this.height);
-        ctx.fillStyle = this.color;
-        ctx.fill();
-    }
-}
-
-let protag = new character(x,y,width,height,"green");
-protag.drawCharacter()
 
 function move(e){
-    console.log(canvas.width)
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    let oldx = x;
+    let oldy = y;
+    let oldcolor = "red";
+    document.getElementById(oldy+":"+oldx).style.backgroundColor = oldcolor;
+    console.log (x)
+    console.log (y)
+    
+
     if (e.key == "ArrowRight" || e.key == "d"){
-        protag.x += speed;   
+        x ++      
     }
-    else if (e.key == "ArrowLeft" || e.key == "a"){
-        protag.x -= speed; 
+    else if (e.key == "ArrowLeft" || e.key == "a"){  
+        x --  
     }
     else if (e.key == "ArrowUp" || e.key == "w"){
-        protag.y -= speed;   
+        y --
     }
     else if (e.key == "ArrowDown" || e.key == "s"){
-        protag.y += speed;    
+        y ++
     }
-    if (protag.x < 0){
-        protag.x = 0
+    
+    if (x > 16){
+        x = 16;
     }
-    if (protag.x > (canvas.width - width)){
-        protag.x = canvas.width - width
+    if (x < 1){
+        x = 1
     }
-    if (protag.y < 0){
-        protag.y = 0
+    if (y > 8){
+        y = 8
     }
-    if (protag.y > (canvas.height - height)){
-        protag.y = canvas.height - height
+    if (y < 1){
+        y = 1
     }
-    protag.drawCharacter()
-
+    document.getElementById(y+":"+x).style.backgroundColor = "green";
 }
