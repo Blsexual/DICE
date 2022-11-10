@@ -1,13 +1,13 @@
 //'use strict'
 //Kanvasen skapas
-/*var canvas = document.getElementById("Canvas"); 
+var canvas = document.getElementById("Canvas"); 
 var ctx = canvas.getContext("2d");
 
+
 //Creating the grid system for the map
-let grid_list_x = [];
-let grid_list_y = [];
+let grid_list = [];
 
-
+/*
 class Grid{
     constructor(width, height, color){
         this.width = width;
@@ -45,18 +45,7 @@ class Path{
         this.color = color;
     }
 }
-
-
-
-function gameloop(){
-    gridY();
-}
-
-
-
-window.onload = function(){
-   window.requestAnimationFrame(gameloop)
-}*/
+*/
 
 
 
@@ -78,10 +67,27 @@ function makeRows(rows, cols) {
         x = 1;
         y++;
     }
-    cell.innerText = (c + 1);
     container.appendChild(cell).className = "grid-item";
   };
 };
 
-makeRows(8, 16);
+function Path(){
+    document.getElementById("4:1").style.backgroundColor = "red";
+    document.getElementById("4:2").style.backgroundColor = "red";
+    document.getElementById("4:3").style.backgroundColor = "red";
+    document.getElementById("4:4").style.backgroundColor = "red";
+    document.getElementById("4:5").style.backgroundColor = "red";
+    document.getElementById("4:6").style.backgroundColor = "red";
+    document.getElementById("4:7").style.backgroundColor = "red";
+    document.getElementById("4:8").style.backgroundColor = "red";
+    document.getElementById("4:9").style.backgroundColor = "red";
+}
 
+function gameloop(){
+    makeRows(8, 16);
+    Path();
+}
+
+window.onload = function(){
+   window.requestAnimationFrame(gameloop);
+}

@@ -33,6 +33,6 @@ body{
   width:75px;
   height:75px;
 
-  border: 1px solid #ddd;
+  border: 1px solid;
   text-align: center;
 }
