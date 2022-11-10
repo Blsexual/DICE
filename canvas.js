@@ -26,6 +26,7 @@ function gameloop(){
     draw();
     console.log(grid_list);
     console.log(startPosition);
+
 }
 
 
