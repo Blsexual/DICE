@@ -1,6 +1,6 @@
 var canvas = document.getElementById("Canvas"); 
 canvas.addEventListener("mousedown", mousedown);
-canvas.addEventListener("keydown", move);
+//canvas.addEventListener("keydown", move);
 var ctx = canvas.getContext("2d");
 
 var block;
@@ -53,7 +53,7 @@ function init(){
     player1 = new player(10,1,10,hjalten,200,500,200,200)
     enemy1 = new enemy(10,1,5,head,600,300,200,200)
 
-    let startPosition = new gridbox(100*(px-1),100*(5-1),"green",100,100);
+    startPosition = new gridbox(100*(px-1),100*(5-1),"green",100,100);
     grid_list.push(startPosition);
 }
 
