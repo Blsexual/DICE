@@ -29,9 +29,9 @@ let path_list = [];
 
 
 // Defining variables
-    let main = 1;
+    let main = 0;
     let map = 0;
-    let combat = 0;
+    let combat = 1;
     let hp = 50;
     let damg = 0;
     let loc;
@@ -60,7 +60,8 @@ console.log(path_pos);
 
 // Defining hitboxes
     let fullCanvas = {x:0,y:0,width:1400,height:700}; //? idk
-    let hitButton = {x:0,y:0,width:771/4,height:264/4}; //? idk
+    let hitButton1 = {x:50,y:50,width:771/4,height:264/4}; //? idk
+    let hitButton2 = {x:50,y:50,width:771/4,height:264/4}; //? idk
 //
 
 function init(){
@@ -77,7 +78,7 @@ function init(){
     bert = new player(100*(px-1),100*(py-1),bertImg,100,100,"1:1");
     console.log("e");
 
-    player_com = new player_combat(10,1,10,hjalten,200,500,200,200)
+    player_com = new player_combat(10,hjalten,200,500,200,200)
     enemy1 = new enemy(10,1,5,head,600,300,200,200)
 }
 
@@ -120,9 +121,10 @@ function draw(){
         console.log("BertyOld "+pyOld);
     }
     if(combat > 0){
-        ctx.drawImage(btstart,hitButton.x,hitButton.y,hitButton.width,hitButton.height);
+        ctx.drawImage(btstart,hitButton1.x,hitButton1.y,hitButton1.width,hitButton1.height);
+        ctx.drawImage(btstart,hitButton2.x,hitButton2.y,hitButton2.width,hitButton2.height);
         enemy1.draw(ctx)
-        player1.draw(ctx)
+        player_com.draw(ctx)
     }
     
 }
