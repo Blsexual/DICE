@@ -6,7 +6,6 @@ var ctx = canvas.getContext("2d");
 var block;
 let grid_list = [];
 let path_list = [];
-let px = 4;
 
 
 // Defining images
@@ -25,8 +24,6 @@ let px = 4;
 
 
 
-
-
 // Defining variables
     let main = 0;
     let map = 1;
@@ -34,7 +31,7 @@ let px = 4;
     let hp = 50;
     let damg = 0;
     let loc;
-    let startPos = "1:1";
+    let startPos = "1:3";
     let color;
 //
 
@@ -42,7 +39,7 @@ let px = 4;
 let click = {x:null,y:null};
 let path_pos = [startPos];
 console.log(path_pos);
-path_pos.push("1:2");
+path_pos.push("2:2","4:4");
 console.log(path_pos);
 
 //
@@ -54,17 +51,19 @@ console.log(path_pos);
 
 function init(){
 
-    for(let y=0; y<8; y++){
-        for(let x=0; x<15; x++){
+    for(let y=1; y<8; y++){
+        for(let x=1; x<15; x++){
             loc = x+":"+y;
-            
-            console.log(loc);
             block = new gridTile(100*(x-1),100*(y-1),"#606060",100,100,loc);
-            pathblock = new path(100*(x-1),100*(y-1),"orange",100,100,loc);
+            
+            
+            
             grid_list.push(block);
+            
+            
         } 
     }
-
+    console.log(path_list);
     player1 = new player(10,1,10,hjalten,200,500,200,200)
     enemy1 = new enemy(10,1,5,head,600,300,200,200)
 
@@ -73,16 +72,13 @@ function init(){
 }
 
 function gameloop(){
+    room();
     draw();
-    console.log(path_list);
-    console.log(grid_list);
 }
 
 
 function draw(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
-    startPosition.draw(ctx);
-    oldPosition.draw(ctx);
     grid_list.forEach(gridblock => {
        gridblock.draw(ctx); 
     });
@@ -95,11 +91,18 @@ function draw(){
     if(map > 0){
         ctx.clearRect(0,0,canvas.width,canvas.height)
         grid_list.forEach(gridblock => {
-            path_pos.forEach(i => {
-                if(gridblock.pos == i){
-                    pathblock.draw(ctx);
-                    console.log("Path "+pathblock.pos);
-                }
+            path_pos.forEach(pathpos => {
+                if(gridblock.pos == pathpos){
+                    //path_list.forEach(pathblock => {
+                        //if(pathpos == pathblock){
+                        rooms = room();
+                        pathBlock = new path(100*(x-1),100*(y-1),rooms,100,100,loc);
+                        pathBlock.draw(ctx);
+                        console.log("Path "+gridblock.pos);
+                        //}
+                    //})
+                    
+                } 
             })
             gridblock.draw(ctx);
             console.log("Grid "+gridblock.pos);
