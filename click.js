@@ -6,15 +6,15 @@ function mousedown(event){
     click.y = event.clientY;
     console.log(click.x + " " + click.y)
 
-    if ((click.x > box1.x) && (click.x < box1.x + box1.width)){
-        if ((click.y > box1.y) && (click.y < box1.y + box1.height)){         
+    if ((click.x > hitButton.x) && (click.x < hitButton.x + hitButton.width)){
+        if ((click.y > hitButton.y) && (click.y < hitButton.y + hitButton.height)){         
             if(hp > 0){
                 sleep(1000);
                 damg = roll(1,10)
-                test.hp -= damg;
-                if(test.hp > 0){
-                    hp = enemyHit(1,5,hp)
-                    console.log("enemy HP: "+ test.hp); 
+                enemy1.hp -= damg;
+                if(enemy1.hp > 0){
+                    hp = enemyHit(enemy1.mindm,enemy1.maxdm,hp)
+                    console.log("enemy HP: "+ enemy1.hp); 
                     console.log("player HP: "+ hp);  
                 }
                 else{

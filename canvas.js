@@ -1,6 +1,6 @@
 var canvas = document.getElementById("Canvas"); 
 canvas.addEventListener("mousedown", mousedown);
-canvas.addEventListener("keydown", move);
+//canvas.addEventListener("keydown", move);
 var ctx = canvas.getContext("2d");
 
 var block;
@@ -18,7 +18,14 @@ let px = 4;
     
     let head = new Image();
     head.src = "img/huvve-me-ben.png"
+    
+    let hjalten = new Image();
+    hjalten.src = "img/hjalten.png"
 //
+
+
+
+
 
 // Defining variables
     let main = 0;
@@ -41,7 +48,6 @@ console.log(path_pos);
 //
 
 // Defining hitboxes
-    let box1 = {x:0,y:0,width:771/4,height:264/4}; //? idk
     let fullCanvas = {x:0,y:0,width:1400,height:700}; //? idk
     let hitButton = {x:0,y:0,width:771/4,height:264/4}; //? idk
 //
@@ -58,11 +64,12 @@ function init(){
             grid_list.push(block);
         } 
     }
-    
-    //grid_list.push(startPosition);
-    test = new enemy(10,1,5,head,300,300,200,200);
-    
-    
+
+    player1 = new player(10,1,10,hjalten,200,500,200,200)
+    enemy1 = new enemy(10,1,5,head,600,300,200,200)
+
+    startPosition = new gridbox(100*(px-1),100*(5-1),"green",100,100);
+    grid_list.push(startPosition);
 }
 
 function gameloop(){
@@ -73,6 +80,14 @@ function gameloop(){
 
 
 function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    startPosition.draw(ctx);
+    grid_list.forEach(gridblock => {
+       gridblock.draw(ctx); 
+    });
+
+    
+
     if(main > 0){
         //ctx.drawImage(startBg,fullCanvas.x,fullCanvas.y,fullCanvas.width,fullCanvas.height);
     }
@@ -90,11 +105,12 @@ function draw(){
         });
     }
     if(combat > 0){
-        //ctx.drawImage(btstart,box1.x,box1.y,box1.width,box1.height);
+        ctx.drawImage(btstart,hitButton.x,hitButton.y,hitButton.width,hitButton.height);
+        enemy1.draw(ctx)
+        player1.draw(ctx)
     }
-
-    //test.draw(ctx)
-    //ctx.drawImage(btstart,box1.x,box1.y,box1.width,box1.height);
+    
+    ctx.drawImage(btstart,hitButton.x,hitButton.y,hitButton.width,hitButton.height);
 }
 
 
