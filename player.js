@@ -127,6 +127,11 @@ function move(event){
         console.log(bertInRoom);
         console.log(bertPos);
     }
+    
+    if(bertPos == pathBlock.pos && pathBlock.color == "black"){
+        map = 0;
+        combat = 1;
+    }
     bertInRoom = 0;
     draw();
 }
