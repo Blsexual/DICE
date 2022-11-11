@@ -33,6 +33,7 @@ let path_list = [];
     let hp = 50;
     let damg = 0;
     let loc;
+    let koll = 0;
     let startPos = "1:1";
     let bertPosX = 1;
     let bertPosY = 1;
@@ -67,17 +68,27 @@ function init(){
         for(let x=1; x<15; x++){
             loc = x+":"+y;
             //console.log(loc);
-            block = new gridTile(100*(x-1),100*(y-1),"#606060",100,100,loc);
             
+            path_pos.forEach(pathPos => {
+                if(pathPos == loc){
+                    rooms = room();
+                    pathBlock = new path(100*(x-1),100*(y-1),rooms,100,100,loc);
+                    path_list.push(pathBlock);
+                    koll = 1;
+                } 
+            })
+            if(koll == 0){
+                block = new gridTile(100*(x-1),100*(y-1),"#606060",100,100,loc);
+                grid_list.push(block); 
+            }
+            koll = 0;
             
-            
-            grid_list.push(block);
-            
-            
+             
         } 
     }
+    console.log(path_list);
+
     bert = new player(100*(px-1),100*(py-1),bertImg,100,100,"1:1");
-    console.log("e");
 
     player_com = new player_combat(10,1,10,hjalten,200,500,200,200)
     enemy1 = new enemy(10,1,5,head,600,300,200,200)
@@ -102,22 +113,17 @@ function draw(){
         document.addEventListener("keydown", move);
         console.log("-----")
         ctx.clearRect(0,0,canvas.width,canvas.height)
-        grid_list.forEach(gridblock => {
-            path_pos.forEach(pathpos => {
-                if(gridblock.pos == pathpos){
-                    //path_list.forEach(pathblock => {
-                        //if(pathpos == pathblock){
-                        rooms = room();
-                        pathBlock = new path(100*(x-1),100*(y-1),rooms,100,100,loc);
-                        pathBlock.draw(ctx);
-                        console.log("Path "+gridblock.pos);
-                        //}
-                    //})
-                    
-                } 
+        path_list.forEach(pathBlock => {
+            path_pos.forEach(pathPos => {
+                if(pathPos == pathBlock.pos){
+                    pathBlock.draw(ctx);
+                    console.log("Path "+pathBlock.pos);
+                }
             })
-            gridblock.draw(ctx);
             //console.log("Grid "+gridblock.pos);
+        });
+        grid_list.forEach(gridBlock => {
+            gridBlock.draw(ctx);
         });
         path_pos.forEach(i => {
             if(bertPos == i){
