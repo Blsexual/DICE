@@ -11,4 +11,15 @@ function mousedown(event){
         }
     }
 
+    if ((click.x > fullCanvas.x) && (click.x < fullCanvas.x + fullCanvas.width)){
+        if ((click.y > fullCanvas.y) && (click.y < fullCanvas.y + fullCanvas.height)){  
+            if(main > 0){
+                main = 0;
+                map = 1;
+                console.log("main"+main+"map"+map);  
+                window.requestAnimationFrame(gameloop);
+            }       
+        }
+    }
+
 }
