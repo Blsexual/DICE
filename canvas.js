@@ -4,6 +4,7 @@ var ctx = canvas.getContext("2d");
 var block;
 let grid_list = [];
 
+
 let r=1;
 let g=1;
 let b=1;
