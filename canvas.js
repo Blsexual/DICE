@@ -6,11 +6,16 @@ let grid_list = [];
 let r=1;
 let g=1;
 let b=1;
+var test;
 
 let btstart = new Image();
 btstart.src = "img/start.png";
 
+let head = new Image();
+head.src = "img/huvve-me-ben.png"
+
 let hp = 50;
+let damg = 0;
 
 let click = {x:null,y:null};
 
@@ -26,6 +31,7 @@ function init(){
             grid_list.push(block);
         } 
     }
+    test = new enemy(10,1,5,head,300,300,50,50)
 }
 function gameloop(){
     draw();
@@ -39,9 +45,12 @@ function draw(){
     });
     ctx.drawImage(btstart,box1.x,box1.y,box1.width,box1.height);
 
+
 }
+
+
 
 window.onload = function(){
     init();
-   window.requestAnimationFrame(gameloop);
+    window.requestAnimationFrame(gameloop);
 }
