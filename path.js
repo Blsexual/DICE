@@ -16,3 +16,20 @@ class path{
         ctx.closePath();
     }
 }
+function room(){
+    let rooms = [];
+    let room1 = "red";
+    let room2 = "pink";
+    let room3 = "black";
+    roomRand = roll(1,4);
+    if(roomRand == 1){
+        rooms.push(room1);
+    }
+    if(roomRand == 2){
+        rooms.push(room2);
+    }
+    if(roomRand == 3){
+        rooms.push(room3);
+    }
+    return rooms;
+}
