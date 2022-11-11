@@ -11,11 +11,11 @@ function mousedown(event){
             if ((click.y > hitButton.y) && (click.y < hitButton.y + hitButton.height)){         
                 if(hp > 0){
                     sleep(1000);
-                    damg = roll(player1.mindm,player1.maxdm)
-                    enemy1.hp -= damg;
-                    if(enemy1.hp > 0){
-                        player1.hp = enemyHit(enemy1.mindm,enemy1.maxdm,player1.hp)
-                        console.log("enemy HP: "+ enemy1.hp); 
+                    damg = roll(player_com.mindm,player_com.maxdm)
+                    player_com.hp -= damg;
+                    if(player_com.hp > 0){
+                        player1.hp = enemyHit(player_com.mindm,player_com.maxdm,player1.hp)
+                        console.log("enemy HP: "+ player_com.hp); 
                         console.log("player HP: "+ hp);  
                     }
                     else{
@@ -38,7 +38,7 @@ function mousedown(event){
                 main = 0;
                 map = 1;
                 console.log("main"+main+"map"+map);  
-                window.requestAnimationFrame(gameloop);
+                draw();
             }       
         }
     }
