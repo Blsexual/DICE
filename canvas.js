@@ -37,8 +37,7 @@ let path_list = [];
     let startPos = "1:1";
     let bertPosX = 1;
     let bertPosY = 1;
-    let bertPos = startPos;
-    let bertPosOld = "1:1";
+    let bertPos = "1:1";
     let bertInRoom = 1;
     let color;
     let px = 0;
@@ -50,9 +49,9 @@ let path_list = [];
 
 // Defining arrays
 let click = {x:null,y:null};
-let path_pos = [startPos];
+let path_pos = [];
 console.log(path_pos);
-path_pos.push("1:2","1:3","2:3","3:3","3:4","3:5","4:5");
+path_pos.push("1:1","1:2","1:3","2:3","3:3","3:4","3:5","4:5","5:5");
 console.log(path_pos);
 
 //
@@ -68,7 +67,7 @@ function init(){
         for(let x=1; x<15; x++){
             loc = x+":"+y;
             //console.log(loc);
-            
+            koll = 0;
             path_pos.forEach(pathPos => {
                 if(pathPos == loc){
                     rooms = room();
@@ -76,12 +75,13 @@ function init(){
                     path_list.push(pathBlock);
                     koll = 1;
                 } 
+               
             })
             if(koll == 0){
                 block = new gridTile(100*(x-1),100*(y-1),"#606060",100,100,loc);
                 grid_list.push(block); 
             }
-            koll = 0;
+            
             
              
         } 
@@ -102,10 +102,7 @@ function gameloop(){
 
 function draw(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
-    grid_list.forEach(gridblock => {
-       gridblock.draw(ctx); 
-    });
-
+    
     if(main > 0){
         ctx.drawImage(startBg,fullCanvas.x,fullCanvas.y,fullCanvas.width,fullCanvas.height);
     }
@@ -118,24 +115,24 @@ function draw(){
                 if(pathPos == pathBlock.pos){
                     pathBlock.draw(ctx);
                     console.log("Path "+pathBlock.pos);
+                    console.log("color "+pathBlock.color);
                 }
             })
-            //console.log("Grid "+gridblock.pos);
         });
-        grid_list.forEach(gridBlock => {
-            gridBlock.draw(ctx);
-        });
+        //grid_list.forEach(gridBlock => {
+        //    gridBlock.draw(ctx);
+        //    console.log("Grid "+gridBlock.pos);
+        //});
         path_pos.forEach(i => {
             if(bertPos == i){
                 ctx.drawImage(bertImg,px,py,100,100);
             }
         })
         console.log("BertPos "+bertPos);
-        console.log("BertPosOld "+bertPosOld);
+
         console.log("BertX "+px);
         console.log("BertY "+py);
-        console.log("BertXOld "+pxOld);
-        console.log("BertyOld "+pyOld);
+
     }
     if(combat > 0){
         ctx.drawImage(btstart,hitButton.x,hitButton.y,hitButton.width,hitButton.height);
