@@ -36,7 +36,7 @@ let hitButton = {x:0,y:0,width:771/4,height:264/4}; //? idk
 //
 
 function init(){
-    for(let y=0; y<7; y++){
+    for(let y=0; y<8; y++){
         for(let x=0; x<15; x++){
             block = new gridbox(100*(x-1),100*(y-1),"red",100,100);
             grid_list.push(block);
@@ -44,13 +44,13 @@ function init(){
     }
     let startPosition = new gridbox(100*(px-1),100*(5-1),"green",100,100);
     grid_list.push(startPosition);
+
     test = new enemy(10,1,5,head,300,300,200,200)
 }
 
 function gameloop(){
     draw();
     console.log(grid_list);
-    console.log(startPosition);
 }
 
 
