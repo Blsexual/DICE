@@ -1,15 +1,11 @@
 var canvas = document.getElementById("Canvas"); 
 canvas.addEventListener("mousedown", mousedown);
+canvas.addEventListener("keydown", move);
 var ctx = canvas.getContext("2d");
+
 var block;
 let grid_list = [];
-
-
-let r=1;
-let g=1;
-let b=1;
-var test;
-let startPosition = new gridbox(100*(4-1),100*(7-1),"green",100,100);
+let px = 4;
 
 
 let btstart = new Image();
@@ -26,12 +22,14 @@ let click = {x:null,y:null};
 let hitButton = {x:0,y:0,width:771/4,height:264/4}; //? idk
 
 function init(){
-    for(let y=0; y<8; y++){
+    for(let y=0; y<7; y++){
         for(let x=0; x<15; x++){
             block = new gridbox(100*(x-1),100*(y-1),"red",100,100);
             grid_list.push(block);
         } 
     }
+    let startPosition = new gridbox(100*(px-1),100*(5-1),"green",100,100);
+    grid_list.push(startPosition);
     test = new enemy(10,1,5,head,300,300,200,200)
 }
 
@@ -44,10 +42,10 @@ function gameloop(){
 
 function draw(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
-    startPosition.draw(ctx);
     grid_list.forEach(gridblock => {
        gridblock.draw(ctx); 
     });
+
     test.draw(ctx)
     ctx.drawImage(btstart,box1.x,box1.y,box1.width,box1.height);
 
