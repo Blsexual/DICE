@@ -26,8 +26,6 @@ let path_list = [];
 
 
 
-
-
 // Defining variables
     let main = 1;
     let map = 0;
@@ -65,13 +63,17 @@ console.log(path_pos);
 
 function init(){
 
-    for(let y=0; y<8; y++){
-        for(let x=0; x<15; x++){
+    for(let y=1; y<8; y++){
+        for(let x=1; x<15; x++){
             loc = x+":"+y;
             //console.log(loc);
             block = new gridTile(100*(x-1),100*(y-1),"#606060",100,100,loc);
-            pathblock = new path(100*(x-1),100*(y-1),"orange",100,100,loc);
+            
+            
+            
             grid_list.push(block);
+            
+            
         } 
     }
     bert = new player(100*(px-1),100*(py-1),bertImg,100,100,"1:1");
@@ -82,14 +84,17 @@ function init(){
 }
 
 function gameloop(){
+    room();
     draw();
-    console.log(path_list);
-    console.log(grid_list);
 }
 
 
 function draw(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
+    grid_list.forEach(gridblock => {
+       gridblock.draw(ctx); 
+    });
+
     if(main > 0){
         ctx.drawImage(startBg,fullCanvas.x,fullCanvas.y,fullCanvas.width,fullCanvas.height);
     }
@@ -98,11 +103,18 @@ function draw(){
         console.log("-----")
         ctx.clearRect(0,0,canvas.width,canvas.height)
         grid_list.forEach(gridblock => {
-            path_pos.forEach(i => {
-                if(gridblock.pos == i){
-                    pathblock.draw(ctx);
-                    //console.log("Path "+gridblock.pos);
-                }
+            path_pos.forEach(pathpos => {
+                if(gridblock.pos == pathpos){
+                    //path_list.forEach(pathblock => {
+                        //if(pathpos == pathblock){
+                        rooms = room();
+                        pathBlock = new path(100*(x-1),100*(y-1),rooms,100,100,loc);
+                        pathBlock.draw(ctx);
+                        console.log("Path "+gridblock.pos);
+                        //}
+                    //})
+                    
+                } 
             })
             gridblock.draw(ctx);
             //console.log("Grid "+gridblock.pos);

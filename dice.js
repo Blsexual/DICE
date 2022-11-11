@@ -11,13 +11,12 @@ function sleep(ms){
 }
 
 function rollDice(){
-  document.getElementById('d20').innerHTML = roll(1,20)
+  document.getElementById('d20').innerHTML = roll(1,21)
 }
 
 function roll(min, max){
   let rollResult = 0;
-  eand = Math.random()
-  rollResult = Math.floor(eand * (max - min) + min);
+  rollResult = Math.floor(Math.random() * (max - min) + min);
   return rollResult;
 }
 
