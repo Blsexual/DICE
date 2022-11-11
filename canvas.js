@@ -68,7 +68,7 @@ function init(){
     player1 = new player(10,1,10,hjalten,200,500,200,200)
     enemy1 = new enemy(10,1,5,head,600,300,200,200)
 
-    startPosition = new gridbox(100*(1-1),100*(1-1),"green",100,100);
+    startPosition = new gridTile(100*(1-1),100*(1-1),"green",100,100);
     grid_list.push(startPosition);
 }
 

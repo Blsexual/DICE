@@ -1,7 +1,7 @@
 
 let x = 1
 let y = 1
-oldPosition = new gridbox(100*(x-1),100*(y-1),"red",100,100);
+oldPosition = new gridTile(100*(x-1),100*(y-1),"red",100,100);
 
 class player{
     constructor(playerhp, mindm, maxdm, img, x, y, width, height){
@@ -58,8 +58,8 @@ function move(event){
         //}
 
     }
-    startPosition = new gridbox(100*(x-1),100*(y-1),"green",100,100);
-    oldPosition = new gridbox(100*(x-1),100*(y-1),"orange",100,100);
+    startPosition = new gridTile(100*(x-1),100*(y-1),"green",100,100);
+    oldPosition = new gridTile(100*(x-1),100*(y-1),"orange",100,100);
     grid_list.push(startPosition);
     grid_list.push(oldPosition);
     draw();
