@@ -20,6 +20,7 @@ class player{
 
 /*addEventListener('keydown', move);
 
+
 function move(e){
     console.log (x)
     console.log (y)
@@ -27,10 +28,12 @@ function move(e){
 
     if (e.key == "ArrowRight" || e.key == "d"){
         x ++; 
-        if (){
-            x--;
-        }     
+        //if (){
+        //    x--;
+        //}     
     }
+}
+/*
     else if (e.key == "ArrowLeft" || e.key == "a"){  
         x --;
         if (){
@@ -50,7 +53,7 @@ function move(e){
         }
 
     }
-/*
+
     if (x > 18){
         x = 18;
     }
@@ -63,4 +66,7 @@ function move(e){
     if (y < 1){
         y = 1
     }
+
+}
 */
+
