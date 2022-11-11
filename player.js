@@ -1,7 +1,24 @@
 
+class player{
+    constructor(playerhp, mindm, maxdm, img, x, y, width, height){
+        this.hp = playerhp
+        this.mindm = mindm
+        this.maxdm = maxdm
+        this.img = img
+        this.width = width;
+        this.height = height;
+        this.x = x;
+        this.y = y;
+    }
 
+    draw(ctx){
+        ctx.beginPath();
+        ctx.drawImage(this.img,this.x,this.y,this.width,this.height);
+        ctx.closePath();
+    }
+}
 
-addEventListener('keydown', move);
+/*addEventListener('keydown', move);
 
 function move(e){
     console.log (x)
@@ -47,4 +64,3 @@ function move(e){
         y = 1
     }
 */
-}

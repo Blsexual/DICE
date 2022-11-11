@@ -18,6 +18,9 @@ btstart.src = "img/start.png";
 let head = new Image();
 head.src = "img/huvve-me-ben.png"
 
+let hjalten = new Image();
+hjalten.src = "img/hjalten.png"
+
 let hp = 50;
 let damg = 0;
 
@@ -32,7 +35,8 @@ function init(){
             grid_list.push(block);
         } 
     }
-    test = new enemy(10,1,5,head,300,300,200,200)
+    player1 = new player(10,1,10,hjalten,200,500,200,200)
+    enemy1 = new enemy(10,1,5,head,600,300,200,200)
 }
 
 function gameloop(){
@@ -48,8 +52,9 @@ function draw(){
     grid_list.forEach(gridblock => {
        gridblock.draw(ctx); 
     });
-    test.draw(ctx)
-    ctx.drawImage(btstart,box1.x,box1.y,box1.width,box1.height);
+    enemy1.draw(ctx)
+    player1.draw(ctx)
+    ctx.drawImage(btstart,hitButton.x,hitButton.y,hitButton.width,hitButton.height);
 
 
 }
