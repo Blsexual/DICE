@@ -22,7 +22,7 @@ let damg = 0;
 
 let click = {x:null,y:null};
 
-let box1 = {x:0,y:0,width:771/4,height:264/4}; //? idk
+let hitButton = {x:0,y:0,width:771/4,height:264/4}; //? idk
 
 function init(){
     for(let y=0; y<8; y++){
@@ -31,7 +31,7 @@ function init(){
             grid_list.push(block);
         } 
     }
-    test = new enemy(10,1,5,head,300,300,50,50)
+    test = new enemy(10,1,5,head,300,300,200,200)
 }
 
 function gameloop(){
@@ -47,7 +47,7 @@ function draw(){
     grid_list.forEach(gridblock => {
        gridblock.draw(ctx); 
     });
-    
+    test.draw(ctx)
     ctx.drawImage(btstart,box1.x,box1.y,box1.width,box1.height);
 
 
