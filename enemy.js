@@ -1,5 +1,5 @@
 
-class enemy{
+class enemyclass{
     constructor(enemyhp, mindm, maxdm, img, x, y, width, height){
         this.hp = enemyhp
         this.mindm = mindm
@@ -14,6 +14,7 @@ class enemy{
     draw(ctx){
         ctx.beginPath();
         ctx.drawImage(this.img,this.x,this.y,this.width,this.height);
+        ctx.fillText("HP: " + this.hp, this.x, this.y);
         ctx.closePath();
     }
 }

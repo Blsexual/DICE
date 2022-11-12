@@ -1,6 +1,7 @@
 var canvas = document.getElementById("Canvas"); 
 canvas.addEventListener("mousedown", mousedown);
 var ctx = canvas.getContext("2d");
+ctx.font = "30px Arial";
 
 var block;
 let grid_list = [];
@@ -16,12 +17,18 @@ let path_list = [];
     
     let head = new Image();
     head.src = "img/huvve-me-ben.png"
+
+    let ghost = new Image();
+    ghost.src = "img/ghost.png"
     
     let hjalten = new Image();
     hjalten.src = "img/hjalten.png"
 
     let bertImg = new Image();
     bertImg.src = "img/mini-bert.png"
+
+    let fightroom = new Image();
+    fightroom.src = "img/room.png"
 //
 
 
@@ -45,6 +52,8 @@ let path_list = [];
     let pxOld = 0;
     let pyOld = 0; 
     let movementSpeed = 100;
+    let e1hp = 5        //enemy 1 hp
+    let e2hp = 10       //enemy 2 hp
 //
 
 // Defining arrays
@@ -59,7 +68,7 @@ console.log(path_pos);
 // Defining hitboxes
     let fullCanvas = {x:0,y:0,width:1400,height:700}; //? idk
     let hitButton1 = {x:50,y:50,width:771/4,height:264/4}; //? idk
-    let hitButton2 = {x:50,y:50,width:771/4,height:264/4}; //? idk
+    let hitButton2 = {x:250,y:50,width:771/4,height:264/4}; //? idk
 //
 
 function init(){
@@ -91,8 +100,16 @@ function init(){
 
     bert = new player(100*(px-1),100*(py-1),bertImg,100,100,"1:1");
 
-    player_com = new player_combat(10,hjalten,200,500,200,200)
-    enemy1 = new enemy(10,1,5,head,600,300,200,200)
+    player_com = new player_combat(10,hjalten,300,500,200,200)
+
+    etyp = roll(1,2)
+    if (etyp == 1){
+        enemy = new enemyclass(e1hp,1,5,head,800,375,200,200)
+    }
+    else if (etyp == 2){
+        enemy = new enemyclass(e2hp,1,5,ghost,800,300,200,200)
+    }
+    
 }
 
 function gameloop(){
@@ -120,10 +137,6 @@ function draw(){
                 }
             })
         });
-        //grid_list.forEach(gridBlock => {
-        //    gridBlock.draw(ctx);
-        //    console.log("Grid "+gridBlock.pos);
-        //});
         path_pos.forEach(i => {
             if(bertPos == i){
                 ctx.drawImage(bertImg,px,py,100,100);
@@ -136,9 +149,12 @@ function draw(){
 
     }
     if(combat > 0){
+        ctx.drawImage(fightroom,fullCanvas.x,fullCanvas.y,fullCanvas.width,fullCanvas.height);
         ctx.drawImage(btstart,hitButton1.x,hitButton1.y,hitButton1.width,hitButton1.height);
+        ctx.fillText("damage: 5-10", hitButton1.x, hitButton1.y);
         ctx.drawImage(btstart,hitButton2.x,hitButton2.y,hitButton2.width,hitButton2.height);
-        enemy1.draw(ctx)
+        ctx.fillText("damage: 1-20", this.x, this.y);
+        enemy.draw(ctx)
         player_com.draw(ctx)
     }
     

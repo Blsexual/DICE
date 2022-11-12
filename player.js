@@ -16,15 +16,13 @@ class player{
 }
 
 class player_combat{
-    constructor(playerhp, mindm, maxdm, img, x, y, width, height){
+    constructor(playerhp, img, x, y, width, height){
         this.x = x;
         this.y = y;
         this.img = img
         this.width = width;
         this.height = height;
         this.hp = playerhp
-        this.mindm = mindm
-        this.maxdm = maxdm
         
 
     }
@@ -32,6 +30,7 @@ class player_combat{
     draw(ctx){
         ctx.beginPath();
         ctx.drawImage(this.img,this.x,this.y,this.width,this.height);
+        ctx.fillText("HP: " + this.hp, this.x, this.y);
         ctx.closePath();
     }
 }
@@ -47,7 +46,6 @@ function move(event){
         }     
         bertPos = bertPosX+":"+bertPosY;
         path_pos.forEach(room => {
-            console.log(room);
             if(bertPos == room){
                 bertInRoom = 1;
             }
@@ -56,10 +54,7 @@ function move(event){
             px -= movementSpeed; 
             bertPosX -= 1;
             bertPos = bertPosX+":"+bertPosY;
-        }
-        console.log(bertInRoom);
-        console.log(bertPos);
-        
+        }    
     }
     else if (key == 37 || key == 65){  
         px -= movementSpeed;
@@ -70,7 +65,6 @@ function move(event){
         }  
         bertPos = bertPosX+":"+bertPosY;
         path_pos.forEach(room => {
-            console.log(room);
             if(bertPos == room){
                 bertInRoom = 1;
             }
@@ -80,8 +74,6 @@ function move(event){
             bertPosX += 1;
             bertPos = bertPosX+":"+bertPosY;
         }
-        console.log(bertInRoom);
-        console.log(bertPos);
     }
     else if (key == 38 || key == 87){
         py -= movementSpeed;
@@ -92,7 +84,6 @@ function move(event){
         } 
         bertPos = bertPosX+":"+bertPosY;
         path_pos.forEach(room => {
-            console.log(room);
             if(bertPos == room){
                 bertInRoom = 1;
             }
@@ -102,8 +93,6 @@ function move(event){
             bertPosY += 1;
             bertPos = bertPosX+":"+bertPosY;
         }
-        console.log(bertInRoom);
-        console.log(bertPos);
     }
     else if (key == 40 || key == 83){
         py += movementSpeed;
@@ -114,7 +103,6 @@ function move(event){
         }       
         bertPos = bertPosX+":"+bertPosY;
         path_pos.forEach(room => {
-            console.log(room);
             if(bertPos == room){
                 bertInRoom = 1;
             }
@@ -124,53 +112,24 @@ function move(event){
             bertPosY -= 1;
             bertPos = bertPosX+":"+bertPosY;
         }
-        console.log(bertInRoom);
-        console.log(bertPos);
     }
     
     if(bertPos == pathBlock.pos && pathBlock.color == "black"){
         map = 0;
         combat = 1;
+        etyp = roll(1,2)
+        if (etyp == 1){
+            enemy.hp = e1hp;
+            enemy.img = head;
+            enemy.y = 375;
+        }
+        else if (etyp == 2){
+            enemy.hp = e2hp
+            enemy.img = ghost
+            enemy.y = 300;
+        }
     }
     bertInRoom = 0;
     draw();
 }
 
-
-/*
-    else if (e.key == "ArrowLeft" || e.key == "a"){  
-        x --;
-        if (){
-            x++;
-        } 
-    }
-    else if (e.key == "ArrowUp" || e.key == "w"){
-        y --;
-        if (){
-            y++;
-        } 
-    }
-    else if (e.key == "ArrowDown" || e.key == "s"){
-        y ++;
-        if (){
-            y--;
-        }
-
-    }
-
-    if (x > 18){
-        x = 18;
-    }
-    if (x < 1){
-        x = 1
-    }
-    if (y > 8){
-        y = 8
-    }
-    if (y < 1){
-        y = 1
-    }
-
-}
-
-*/
