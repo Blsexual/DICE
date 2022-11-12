@@ -1,3 +1,7 @@
+
+/*-----------------------------------------
+            player on map
+-----------------------------------------*/
 class player{
     constructor(x, y, img, width, height, pos){
         this.x = x;
@@ -15,6 +19,9 @@ class player{
     }
 }
 
+/*-----------------------------------------
+            player in combat
+-----------------------------------------*/
 class player_combat{
     constructor(playerhp, img, x, y, width, height){
         this.x = x;
@@ -29,14 +36,20 @@ class player_combat{
     
     draw(ctx){
         ctx.beginPath();
-        ctx.drawImage(this.img,this.x,this.y,this.width,this.height);
+        ctx.drawImage(this.img,this.x,this.y,this.width,this.height);       //ritar utt karaktär och hp på den
         ctx.fillText("HP: " + this.hp, this.x, this.y);
         ctx.closePath();
     }
 }
 
+/*-----------------------------------------
+            moving on map
+-----------------------------------------*/
 function move(event){
     key = event.keyCode
+    /*-----------------------------------------
+                moving on right
+    -----------------------------------------*/
     if (key == 39 || key == 68){
         px += movementSpeed; 
         bertPosX += 1;
@@ -56,6 +69,9 @@ function move(event){
             bertPos = bertPosX+":"+bertPosY;
         }    
     }
+    /*-----------------------------------------
+                moving on left
+    -----------------------------------------*/
     else if (key == 37 || key == 65){  
         px -= movementSpeed;
         bertPosX -= 1;
@@ -75,6 +91,9 @@ function move(event){
             bertPos = bertPosX+":"+bertPosY;
         }
     }
+    /*-----------------------------------------
+                moving on upp
+    -----------------------------------------*/
     else if (key == 38 || key == 87){
         py -= movementSpeed;
         bertPosY -= 1;
@@ -94,6 +113,9 @@ function move(event){
             bertPos = bertPosX+":"+bertPosY;
         }
     }
+    /*-----------------------------------------
+                moving on down
+    -----------------------------------------*/
     else if (key == 40 || key == 83){
         py += movementSpeed;
         bertPosY += 1;
@@ -113,7 +135,9 @@ function move(event){
             bertPos = bertPosX+":"+bertPosY;
         }
     }
-    
+    /*-----------------------------------------
+                    encounter
+    -----------------------------------------*/
     if(bertPos == pathBlock.pos && pathBlock.color == "black"){
         map = 0;
         combat = 1;

@@ -13,8 +13,8 @@ class enemyclass{
 
     draw(ctx){
         ctx.beginPath();
-        ctx.drawImage(this.img,this.x,this.y,this.width,this.height);
-        ctx.fillText("HP: " + this.hp, this.x, this.y);
+        ctx.drawImage(this.img,this.x,this.y,this.width,this.height);           //ritar utt fiende och hp på den
+        ctx.fillText("HP: " + this.hp, this.x, this.y);                 
         ctx.closePath();
     }
 }

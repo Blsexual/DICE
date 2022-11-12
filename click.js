@@ -6,11 +6,16 @@ function mousedown(event){
     console.log(click.x + " " + click.y)
     console.log("start enemy HP: "+ enemy.hp); 
     console.log("start player HP: "+ player_com.hp);  
+
+
     if(combat > 0){
-        if ((click.x > hitButton1.x) && (click.x < hitButton1.x + hitButton1.width)){
-            if ((click.y > hitButton1.y) && (click.y < hitButton1.y + hitButton1.height)){              
+    /*-----------------------------------------
+                    weapon 1
+    -----------------------------------------*/
+        if ((click.x > weapon1.x) && (click.x < weapon1.x + weapon1.width)){
+            if ((click.y > weapon1.y) && (click.y < weapon1.y + weapon1.height)){             
                 sleep(1000);
-                damg = roll(5,10)
+                damg = roll(weapon1.mindm,weapon1.maxdm)
                 enemy.hp -= damg;
                 if(enemy.hp <= 0){
                     console.log("enemy dead");
@@ -25,10 +30,13 @@ function mousedown(event){
                 }
             }
         }
-        if ((click.x > hitButton2.x) && (click.x < hitButton2.x + hitButton2.width)){
-            if ((click.y > hitButton2.y) && (click.y < hitButton2.y + hitButton2.height)){         
+    /*-----------------------------------------
+                    weapon 2
+    -----------------------------------------*/
+        if ((click.x > weapon2.x) && (click.x < weapon2.x + weapon2.width)){
+            if ((click.y > weapon2.y) && (click.y < weapon2.y + weapon2.height)){         
                 sleep(1000);
-                damg = roll(1,20)
+                damg = roll(weapon2.mindm,weapon2.maxdm)
                 enemy.hp -= damg;
                 if(enemy.hp <= 0){
                     console.log("enemy dead");
@@ -41,6 +49,23 @@ function mousedown(event){
                 console.log("enemy HP: "+ enemy.hp); 
                 console.log("player HP: "+ player_com.hp);   
                 } 
+            }
+        }
+    /*-----------------------------------------
+                    heal
+    -----------------------------------------*/
+
+        if ((click.x > heal1.x) && (click.x < heal1.x + heal1.width)){
+            if ((click.y > heal1.y) && (click.y < heal1.y + heal1.height)){             
+                sleep(1000);
+                damg = roll(heal1.minhp,heal1.maxhp)
+                player_com.hp += damg;
+                if (player_com.hp > 10){
+                    player_com.hp = 10;
+                }
+                player_com.hp = enemyHit(enemy.mindm,enemy.maxdm,player_com.hp)
+                console.log("enemy HP: "+ enemy.hp); 
+                console.log("player HP: "+ player_com.hp);   
             }
         }
         if(player_com.hp <= 0){
