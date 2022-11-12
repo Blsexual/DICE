@@ -21,7 +21,7 @@ function room(){
     let room1 = "red";
     let room2 = "pink";
     let room3 = "black";
-    roomRand = roll(1,4);
+    roomRand = roll(1,3);
     if(roomRand == 1){
         rooms.push(room1);
     }

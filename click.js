@@ -1,62 +1,55 @@
 
 function mousedown(event){
 
- 
     click.x = event.clientX;
     click.y = event.clientY;
     console.log(click.x + " " + click.y)
-
+    console.log("start enemy HP: "+ enemy.hp); 
+    console.log("start player HP: "+ player_com.hp);  
     if(combat > 0){
         if ((click.x > hitButton1.x) && (click.x < hitButton1.x + hitButton1.width)){
-            if ((click.y > hitButton1.y) && (click.y < hitButton1.y + hitButton1.height)){         
-                if(hp > 0){
-                    sleep(1000);
-                    damg = roll(5,11)
-                    player_com.hp -= damg;
-                    if(player_com.hp > 0){
-                        player_com.hp = enemyHit(enemy1.mindm,enemy1.maxdm,player_com.hp)
-                        console.log("enemy HP: "+ player_com.hp); 
-                        console.log("player HP: "+ hp);  
-                    }
-                    else{
-                        console.log("enemy dead");
-                        map = 1;
-                        combat = 0;
-                        draw()
-                    }
+            if ((click.y > hitButton1.y) && (click.y < hitButton1.y + hitButton1.height)){              
+                sleep(1000);
+                damg = roll(5,10)
+                enemy.hp -= damg;
+                if(enemy.hp <= 0){
+                    console.log("enemy dead");
+                    map = 1;
+                    combat = 0;
+                    draw()
                 }
                 else{
-                    console.log("you dead");
+                    player_com.hp = enemyHit(enemy.mindm,enemy.maxdm,player_com.hp)
+                    console.log("enemy HP: "+ enemy.hp); 
+                    console.log("player HP: "+ player_com.hp);  
                 }
-    
-                
             }
         }
         if ((click.x > hitButton2.x) && (click.x < hitButton2.x + hitButton2.width)){
             if ((click.y > hitButton2.y) && (click.y < hitButton2.y + hitButton2.height)){         
-                if(hp > 0){
-                    sleep(1000);
-                    damg = roll(1,20)
-                    player_com.hp -= damg;
-                    if(player_com.hp > 0){
-                        player_com.hp = enemyHit(enemy1.mindm,enemy1.maxdm,player_com.hp)
-                        console.log("enemy HP: "+ player_com.hp); 
-                        console.log("player HP: "+ hp);  
-                    }
-                    else{
-                        console.log("enemy dead");
-                        map = 1;
-                        combat = 0;
-                        draw()
-                    }
+                sleep(1000);
+                damg = roll(1,20)
+                enemy.hp -= damg;
+                if(enemy.hp <= 0){
+                    console.log("enemy dead");
+                    map = 1;
+                    combat = 0;
+                    draw()
                 }
                 else{
-                    console.log("you dead");
-                }
-    
-                
+                player_com.hp = enemyHit(enemy.mindm,enemy.maxdm,player_com.hp)
+                console.log("enemy HP: "+ enemy.hp); 
+                console.log("player HP: "+ player_com.hp);   
+                } 
             }
         }
+        if(player_com.hp <= 0){
+            console.log("you are dead")
+            alert("you are dead stop resisting")
+        }
+        
+        draw()
+        
     }
     
 
