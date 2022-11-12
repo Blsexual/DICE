@@ -52,8 +52,8 @@ let path_list = [];
     let pxOld = 0;
     let pyOld = 0; 
     let movementSpeed = 100;
-    let e1hp = 5        //enemy 1 hp
-    let e2hp = 10       //enemy 2 hp
+    let e1hp = 10                          //enemy 1 hp
+    let e2hp = 15                        //enemy 2 hp
 //
 
 // Defining arrays
@@ -67,8 +67,6 @@ console.log(path_pos);
 
 // Defining hitboxes
     let fullCanvas = {x:0,y:0,width:1400,height:700}; //? idk
-    let hitButton1 = {x:50,y:50,width:771/4,height:264/4}; //? idk
-    let hitButton2 = {x:250,y:50,width:771/4,height:264/4}; //? idk
 //
 
 function init(){
@@ -98,12 +96,16 @@ function init(){
     }
     console.log(path_list);
 
-    bert = new player(100*(px-1),100*(py-1),bertImg,100,100,"1:1");
+    bert = new player(100*(px-1),100*(py-1),bertImg,100,100,"1:1");     //skapar spelaren till kartan
 
-    player_com = new player_combat(10,hjalten,300,500,200,200)
+    player_com = new player_combat(10,hjalten,300,500,200,200)      //skapar spelaren till combat och bestämer stats
+
+    weapon1 = new weapon(5,10,btstart,50,50,771/4,264/4)
+    weapon2 = new weapon(1,20,btstart,250,50,771/4,264/4)                //skapar "vapen" och bestämer stats
+    heal1 = new heal(1,5,btstart,450,50,771/4,264/4)
 
     etyp = roll(1,2)
-    if (etyp == 1){
+    if (etyp == 1){                                                 //skapar fiender och bestämer stats
         enemy = new enemyclass(e1hp,1,5,head,800,375,200,200)
     }
     else if (etyp == 2){
@@ -148,12 +150,11 @@ function draw(){
         console.log("BertY "+py);
 
     }
-    if(combat > 0){
+    if(combat > 0){               //ritar utt allt för combat
         ctx.drawImage(fightroom,fullCanvas.x,fullCanvas.y,fullCanvas.width,fullCanvas.height);
-        ctx.drawImage(btstart,hitButton1.x,hitButton1.y,hitButton1.width,hitButton1.height);
-        ctx.fillText("damage: 5-10", hitButton1.x, hitButton1.y);
-        ctx.drawImage(btstart,hitButton2.x,hitButton2.y,hitButton2.width,hitButton2.height);
-        ctx.fillText("damage: 1-20", this.x, this.y);
+        weapon1.draw(ctx)
+        weapon2.draw(ctx)
+        heal1.draw(ctx)
         enemy.draw(ctx)
         player_com.draw(ctx)
     }
