@@ -37,11 +37,11 @@ let path_list = [];
     let main = 0;
     let map = 0;
     let combat = 1;
+    let dead = 0;
     let hp = 50;
     let damg = 0;
     let loc;
     let koll = 0;
-    let startPos = "1:1";
     let bertPosX = 1;
     let bertPosY = 1;
     let bertPos = "1:1";
@@ -52,15 +52,16 @@ let path_list = [];
     let pxOld = 0;
     let pyOld = 0; 
     let movementSpeed = 100;
-    let e1hp = 10                          //enemy 1 hp
+    let e1hp = 10                         //enemy 1 hp
     let e2hp = 15                        //enemy 2 hp
+    let php = 20                        //player hp
 //
 
 // Defining arrays
 let click = {x:null,y:null};
 let path_pos = [];
 console.log(path_pos);
-path_pos.push("1:1","1:2","1:3","2:3","3:3","3:4","3:5","4:5","5:5");
+path_pos.push("1:1","1:2","1:3","2:3","3:3","3:4","3:5","4:5","5:5","5:6");
 console.log(path_pos);
 
 //
@@ -78,8 +79,8 @@ function init(){
             koll = 0;
             path_pos.forEach(pathPos => {
                 if(pathPos == loc){
-                    rooms = room();
-                    pathBlock = new path(100*(x-1),100*(y-1),rooms,100,100,loc);
+                    roomses = room();
+                    pathBlock = new path(100*(x-1),100*(y-1),roomses,100,100,loc);
                     path_list.push(pathBlock);
                     koll = 1;
                 } 
@@ -98,18 +99,18 @@ function init(){
 
     bert = new player(100*(px-1),100*(py-1),bertImg,100,100,"1:1");     //skapar spelaren till kartan
 
-    player_com = new player_combat(10,hjalten,300,500,200,200)      //skapar spelaren till combat och bestämer stats
+    player_com = new player_combat(php,hjalten,300,500,200,200)      //skapar spelaren till combat och bestämer stats
 
     weapon1 = new weapon(5,10,btstart,50,50,771/4,264/4)
     weapon2 = new weapon(1,20,btstart,250,50,771/4,264/4)                //skapar "vapen" och bestämer stats
-    heal1 = new heal(1,5,btstart,450,50,771/4,264/4)
+    heal1 = new heal(5,10,btstart,450,50,771/4,264/4)
 
     etyp = roll(1,2)
     if (etyp == 1){                                                 //skapar fiender och bestämer stats
-        enemy = new enemyclass(e1hp,1,5,head,800,375,200,200)
+        enemy = new enemyclass(e1hp,1,5,head,800,375,200,200)   //head enemy
     }
     else if (etyp == 2){
-        enemy = new enemyclass(e2hp,1,5,ghost,800,300,200,200)
+        enemy = new enemyclass(e2hp,3,7,ghost,800,300,200,200)  //ghost enemy
     }
     
 }
