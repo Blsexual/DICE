@@ -138,21 +138,30 @@ function move(event){
     /*-----------------------------------------
                     encounter
     -----------------------------------------*/
-    if(bertPos == pathBlock.pos && pathBlock.color == "black"){
-        map = 0;
-        combat = 1;
-        etyp = roll(1,2)
-        if (etyp == 1){
-            enemy.hp = e1hp;
-            enemy.img = head;
-            enemy.y = 375;
-        }
-        else if (etyp == 2){
-            enemy.hp = e2hp
-            enemy.img = ghost
-            enemy.y = 300;
-        }
-    }
+    
+    path_list.forEach(pathBlock => {
+        path_pos.forEach(pathPos => {
+            if(pathPos == pathBlock.pos){
+                if(bertPos == pathBlock.pos && pathBlock.color == "black"){
+                    map = 0;
+                    combat = 1;
+                    etyp = roll(1,2)
+                    ctx.fillStyle = "black";
+                    if (etyp == 1){
+                        enemy.hp = e1hp;
+                        enemy.img = head;
+                        enemy.y = 375;
+                    }
+                    else if (etyp == 2){
+                        enemy.hp = e2hp
+                        enemy.img = ghost
+                        enemy.y = 300;
+                    }
+                }
+            }
+        })
+    });
+    
     bertInRoom = 0;
     draw();
 }
