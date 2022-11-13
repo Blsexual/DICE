@@ -16,6 +16,7 @@ function rollDice(){
 
 function roll(min, max){
   let rollResult = 0;
+  max ++;
   rollResult = Math.floor(Math.random() * (max - min) + min);
   return rollResult;
 }

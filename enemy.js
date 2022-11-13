@@ -1,5 +1,5 @@
 
-class enemy{
+class enemyclass{
     constructor(enemyhp, mindm, maxdm, img, x, y, width, height){
         this.hp = enemyhp
         this.mindm = mindm
@@ -13,7 +13,8 @@ class enemy{
 
     draw(ctx){
         ctx.beginPath();
-        ctx.drawImage(this.img,this.x,this.y,this.width,this.height);
+        ctx.drawImage(this.img,this.x,this.y,this.width,this.height);           //ritar utt fiende och hp på den
+        ctx.fillText("HP: " + this.hp, this.x, this.y);                 
         ctx.closePath();
     }
 }
