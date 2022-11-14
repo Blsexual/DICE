@@ -13,7 +13,7 @@ function mousedown(event){
                     weapon 1
     -----------------------------------------*/
         if ((click.x > weapon1.x) && (click.x < weapon1.x + weapon1.width)){
-            if ((click.y > weapon1.y) && (click.y < weapon1.y + weapon1.height)){             
+            if ((click.y > weapon1.y) && (click.y < weapon1.y + weapon1.height)){        
                 sleep(1000);
                 damg = roll(weapon1.mindm,weapon1.maxdm)
                 enemy.hp -= damg;
@@ -88,5 +88,4 @@ function mousedown(event){
             }       
         }
     }
-
 }
