@@ -34,9 +34,9 @@ let path_list = [];
 
 
 // Defining variables
-    let main = 0;
+    let main = 1;
     let map = 0;
-    let combat = 1;
+    let combat = 0;
     let dead = 0;
     let hp = 50;
     let damg = 0;
@@ -54,15 +54,15 @@ let path_list = [];
     let movementSpeed = 100;
     let e1hp = 10                         //enemy 1 hp
     let e2hp = 15                        //enemy 2 hp
-    let php = 20                        //player hp
+    let php = 20      
+    let wait = 0   
+    let moved = 0               //player hp
 //
 
 // Defining arrays
 let click = {x:null,y:null};
 let path_pos = [];
-console.log(path_pos);
-path_pos.push("1:1","1:2","1:3","2:3","3:3","3:4","3:5","4:5","5:5","5:6");
-console.log(path_pos);
+path_pos.push("1:1","1:2","1:3","2:3","3:3","3:4","3:5","4:5","5:5","5:6","6:6");
 
 //
 
@@ -84,20 +84,12 @@ function init(){
                     path_list.push(pathBlock);
                     koll = 1;
                 } 
-               
             })
-            if(koll == 0){
-                block = new gridTile(100*(x-1),100*(y-1),"#606060",100,100,loc);
-                grid_list.push(block); 
-            }
-            
-            
-             
         } 
     }
     console.log(path_list);
 
-    bert = new player(100*(px-1),100*(py-1),bertImg,100,100,"1:1");     //skapar spelaren till kartan
+    bert = new player(100*(px-1),100*(py-1),bertImg,100,100,bertPos);     //skapar spelaren till kartan
 
     player_com = new player_combat(php,hjalten,300,500,200,200)      //skapar spelaren till combat och bestämer stats
 
